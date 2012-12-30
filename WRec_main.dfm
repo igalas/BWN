@@ -1,7 +1,7 @@
 object Main: TMain
   Left = 241
   Top = 154
-  Width = 790
+  Width = 800
   Height = 592
   HorzScrollBar.Tracking = True
   VertScrollBar.Tracking = True
@@ -3921,14 +3921,14 @@ object Main: TMain
   OnResize = FormResize
   OnShow = FormShow
   DesignSize = (
-    774
+    784
     534)
   PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
-    Left = 80
+    Left = 78
     Top = 8
-    Width = 625
+    Width = 638
     Height = 9
     Anchors = [akLeft, akTop, akRight]
     Picture.Data = {
@@ -4057,7 +4057,7 @@ object Main: TMain
   object GroupBox2: TGroupBox
     Left = 328
     Top = 42
-    Width = 439
+    Width = 450
     Height = 431
     Anchors = [akTop, akRight, akBottom]
     Caption = ' '#1057#1087#1077#1082#1090#1088#1099' '
@@ -4069,12 +4069,12 @@ object Main: TMain
     ParentFont = False
     TabOrder = 0
     DesignSize = (
-      439
+      450
       431)
     object SP_TAB: TTabControl
       Left = 7
       Top = 15
-      Width = 424
+      Width = 435
       Height = 409
       Anchors = [akLeft, akTop, akRight, akBottom]
       Images = SP_IMG
@@ -4087,20 +4087,20 @@ object Main: TMain
       TabIndex = 0
       OnChange = OnChPage
       DesignSize = (
-        424
+        435
         409)
       object Label2: TLabel
-        Left = 387
-        Top = -1
-        Width = 30
+        Left = 374
+        Top = -3
+        Width = 60
         Height = 25
         Anchors = [akTop, akRight]
-        Caption = 'DB'
-        Font.Charset = RUSSIAN_CHARSET
-        Font.Color = clBlack
-        Font.Height = -21
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Caption = 'SQLite'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clNavy
+        Font.Height = -20
+        Font.Name = 'Chaparral Pro'
+        Font.Style = [fsBold, fsItalic]
         ParentFont = False
       end
       object SP_Menu: TTreeView
@@ -4126,7 +4126,7 @@ object Main: TMain
       object SP_list: TStringGrid
         Left = 184
         Top = 33
-        Width = 233
+        Width = 244
         Height = 337
         Anchors = [akLeft, akTop, akRight, akBottom]
         ColCount = 1
@@ -4152,7 +4152,7 @@ object Main: TMain
       object Ed_Find: TEdit
         Left = 16
         Top = 40
-        Width = 305
+        Width = 316
         Height = 24
         Hint = #1042#1074#1086#1076' '#1089#1090#1088#1086#1082#1080' '#1087#1086#1080#1089#1082#1072
         Anchors = [akLeft, akTop, akRight]
@@ -4167,7 +4167,7 @@ object Main: TMain
         OnExit = Ed_FindExit
       end
       object Bt_Find: TBitBtn
-        Left = 328
+        Left = 339
         Top = 39
         Width = 80
         Height = 25
@@ -4203,7 +4203,7 @@ object Main: TMain
       object SP_Find: TStringGrid
         Left = 16
         Top = 70
-        Width = 393
+        Width = 404
         Height = 302
         Anchors = [akLeft, akTop, akRight, akBottom]
         ColCount = 1
@@ -4227,7 +4227,7 @@ object Main: TMain
         OnDrawCell = OnFDrCel
       end
       object Bt_Help: TBitBtn
-        Left = 232
+        Left = 243
         Top = 375
         Width = 184
         Height = 25
@@ -4653,7 +4653,7 @@ object Main: TMain
   object Linfo: TEdit
     Left = 48
     Top = 508
-    Width = 593
+    Width = 603
     Height = 22
     Anchors = [akLeft, akRight, akBottom]
     Color = clMenu
@@ -4713,7 +4713,7 @@ object Main: TMain
       2BFFB42BFFB42BFFB42BFFB42BFFB42BFFB42BFFB42BFFB42BFF}
   end
   object Bt_Print: TBitBtn
-    Left = 647
+    Left = 657
     Top = 475
     Width = 119
     Height = 26
@@ -4746,7 +4746,7 @@ object Main: TMain
     NumGlyphs = 2
   end
   object Bt_Exit: TBitBtn
-    Left = 647
+    Left = 657
     Top = 506
     Width = 119
     Height = 25
@@ -4842,7 +4842,7 @@ object Main: TMain
     TabOrder = 6
   end
   object PL_VAL: TPanel
-    Left = 712
+    Left = 723
     Top = 8
     Width = 53
     Height = 33
@@ -4898,9 +4898,9 @@ object Main: TMain
     NumGlyphs = 2
   end
   object PR_VAL: TProgressBar
-    Left = 80
+    Left = 78
     Top = 17
-    Width = 626
+    Width = 638
     Height = 24
     Anchors = [akLeft, akTop, akRight]
     Step = 1

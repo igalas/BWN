@@ -33,7 +33,7 @@ type
     Panel1: TPanel;
     L_LD: TLabel;
     Label4: TLabel;
-    Label5: TLabel;
+    Image2: TImage;
     procedure FormShow(Sender: TObject);
     procedure ListDrawItem(Control: TWinControl; Index: Integer;
       Rect: TRect; State: TOwnerDrawState);
