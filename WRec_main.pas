@@ -79,6 +79,7 @@ type
     N26: TMenuItem;
     N27: TMenuItem;
     Label2: TLabel;
+    Image2: TImage;
     procedure AppException(Sender: TObject; E: Exception);
     procedure OnChPage(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -466,6 +467,7 @@ begin
   AppDir:=ExtractFilePath(Application.ExeName);
   ini := TINIFile.Create(AppDir+'config.ini');
   pat_old:=ini.ReadInteger('Pat window', 'pat_old', 2005);
+  f_load := false;                                             //первая загрузка - показ PRELOAD
 end;
 //---------------------------------------------------------------------------------<<<< MAIN >>>>--
 procedure TMain.FormShow(Sender: TObject);

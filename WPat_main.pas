@@ -46,8 +46,7 @@ type
     procedure ListClick(Sender: TObject);
     procedure Del_BTNClick(Sender: TObject);
     procedure OnSelect(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
-    
+
   private
     { Private declarations }
   public
@@ -71,7 +70,7 @@ var
   ic_m, ic_f, ic_om, ic_of    : TIcon;
   s_arr                       : array [0..9999] of word;
   sld                         : string;
-
+  f_load                  : boolean;
 const
   lab: array[1..20] of string[2]=('Ly',' P','Gi','Nd','MC','Al','Pd','TR',' C',
                           'IG','Rp',' F','Ad',' E','Cd',' S','Fd','VB',' R',' V');
@@ -80,46 +79,16 @@ const
 
 implementation
 
-uses WPat_Edit, wrec_log;
+uses WPat_Edit, wrec_log,
+  Preload;
 {$R *.dfm}
 // ---------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------
-// ---------------------------------------------------------------------------------------------
-procedure TF_Pat.FormCreate(Sender: TObject);
-var
-    j : word;
-    nn:integer;
-   sql,ssex,sfio,sldd: string;
-begin
-   application.ProcessMessages;
-   dir:=extractFilePath(paramstr(0));  indx:=0;
-   ic_m := TIcon.Create; ic_f := TIcon.Create;
-   ic_om := TIcon.Create; ic_of := TIcon.Create;
-   db:=TSqliteDatabase.Open(dir+'\DB\BIO_Pat.db3');
-   sql:='select count(*) from T_Pat as npat';
-   res:=TSqliteQueryResults.Create(db, sql);
-   nn:=res.FieldAsInteger(0); res.Free;
-   sql:='select fio, LD, sex from T_Pat WHERE act=1';
-   res:=TSqliteQueryResults.Create(db, sql);
-   For i:=1 to nn do  begin
-       sfio:=UTF8Decode(res.FieldAsString(0));
-       sld:=res.FieldAsString(1);
-       if sld='No' then sldd:='0000' else sldd:=copy(sld,7,4);
-       ssex:=UTF8Decode(res.FieldAsString(2));
-       imgl.GetIcon(0, ic_of); imgl.GetIcon(1, ic_om);
-       imgl.GetIcon(2, ic_f); imgl.GetIcon(3, ic_m);
-       if (ssex = 'Ж') then if strtoint(sldd)<pat_old then List.Items.AddObject(sfio, ic_of)
-           else List.Items.AddObject(sfio, ic_f);
-       if (ssex = 'М') then if strtoint(sldd)<pat_old then List.Items.AddObject(sfio, ic_om)
-           else List.Items.AddObject(sfio, ic_m);
-       res.Next;
-   end; res.free; db.Free;
-   list.Invalidate; List.Repaint; list.Refresh;
-end;
 // -----------------------------------------------------------------------------------------------
 procedure TF_Pat.FormShow(Sender: TObject);
 var j : word;
 begin
+   if (not f_load) then F_PreLoad.ShowModal;                 //первая загрузка - показ PRELOAD
    GroupBox2.Caption:=' Всего '+inttostr(list.Items.Count)+' пациентов ';
 end;
 // ----------------------------------------------------------------------------------------------
@@ -267,6 +236,8 @@ end;
 // ---------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------
+
+
 end.
 
 

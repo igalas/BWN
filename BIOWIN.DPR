@@ -13,7 +13,8 @@ uses
   WRec_Nak in 'WRec_Nak.pas' {F_Nak},
   WRec_NakDesc in 'WRec_NakDesc.pas' {F_Nak_Desc},
   WRec_Log in 'WRec_Log.pas' {F_Log},
-  WRec_Hlp in 'WRec_Hlp.pas' {F_Hlp};
+  WRec_Hlp in 'WRec_Hlp.pas' {F_Hlp},
+  Preload in 'Preload.pas' {F_PreLoad};
 
 {$R *.res}
 
@@ -32,5 +33,6 @@ begin
   Application.CreateForm(TF_Nak_Desc, F_Nak_Desc);
   Application.CreateForm(TF_Log, F_Log);
   Application.CreateForm(TF_Hlp, F_Hlp);
+  Application.CreateForm(TF_PreLoad, F_PreLoad);
   Application.Run;
 end.

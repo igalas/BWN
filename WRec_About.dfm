@@ -3832,9 +3832,9 @@ object AboutBox: TAboutBox
   object Label2: TLabel
     Left = 453
     Top = 19
-    Width = 40
+    Width = 36
     Height = 16
-    Caption = 'v3.1.4'
+    Caption = 'v3.01'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clGrayText
     Font.Height = -13
