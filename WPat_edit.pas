@@ -151,7 +151,7 @@ begin
      end else begin
        if (ssex = 'Ж') then F_pat.List.Items.AddObject(sfio, ic_f);
        if (ssex = 'М') then F_pat.List.Items.AddObject(sfio, ic_m);
-       sld:=DateToStr(Now);
+       sld:='No';
        F_pat.GroupBox2.Caption:=' Всего '+inttostr(F_pat.list.Items.Count)+' пациентов ';
        sql:='SELECT ID FROM T_Pat WHERE act=0';
        res:=TSqliteQueryResults.Create(db, sql);
@@ -159,12 +159,13 @@ begin
        res.Free;
      end;
      if num>0 then begin
+        if (sld='') then sld:='No';
         sql:='UPDATE T_Pat SET act=1,fio="'+UTF8Encode(sfio)+'",D="'+sD+'",M="'+sM+'",Y="'+sY;
         sql:=sql+'",LD="'+sld+'",sex="'+UTF8Encode(ssex)+'",addr="'+UTF8Encode(saddr);
         sql:=sql+'",phone="'+UTF8Encode(sphone)+'",el="'+ell+'" WHERE ID='+inttostr(num);
      end else begin
         sql:= 'INSERT INTO T_Pat (act,fio,D,M,Y,LD,sex,addr,phone,el) VALUES("1","';
-        sql:=sql+UTF8Encode(sfio)+'","'+sD+'","'+sM+'","'+sY+'","'+sLD+'","'+UTF8Encode(ssex)+'","';
+        sql:=sql+UTF8Encode(sfio)+'","'+sD+'","'+sM+'","'+sY+'","No","'+UTF8Encode(ssex)+'","';
         sql:=sql+UTF8Encode(saddr)+'","'+UTF8Encode(sphone)+'","'+ell+'")';
         num:=F_pat.list.Items.Count;
      end;

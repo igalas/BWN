@@ -47,8 +47,8 @@ begin
    For i:=1 to nn do  begin
        Gauge1.Progress := i;
        sfio:=UTF8Decode(res.FieldAsString(0));
-       sld:=res.FieldAsString(1);
-       if sld='No' then sldd:='0000' else sldd:=copy(sld,7,4);
+       sld:=res.FieldAsString(1); 
+       if ((sld='No') or (sld='')) then sldd:='9999' else sldd:=copy(sld,7,4);
        ssex:=UTF8Decode(res.FieldAsString(2));
        imgl.GetIcon(0, ic_of); imgl.GetIcon(1, ic_om);
        imgl.GetIcon(2, ic_f); imgl.GetIcon(3, ic_m);

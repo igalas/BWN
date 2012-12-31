@@ -206,7 +206,7 @@ begin
     GroupBox2.Caption:=' Всего '+inttostr(list.Items.Count)+' пациентов ';
     F_Pat.Caption:='Выбор пациента...';
     ch_btn.Enabled:=false; del_btn.Enabled:=false; wrk_btn.Enabled:=false;
-    sql:='DELETE FROM T_Rec WHERE pid='+inttostr(num);                    //Затирание в базе
+    sql:='DELETE FROM T_Rec WHERE pid='+inttostr(num);                 //Затирание рецептов в базе
     db:=TSqliteDatabase.Open(dir+'\DB\BIO_Rec.db3');
     db.ExecSQL(sql); db.Free;
   end;
