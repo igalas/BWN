@@ -163,13 +163,18 @@ begin
         sql:='UPDATE T_Pat SET act=1,fio="'+UTF8Encode(sfio)+'",D="'+sD+'",M="'+sM+'",Y="'+sY;
         sql:=sql+'",LD="'+sld+'",sex="'+UTF8Encode(ssex)+'",addr="'+UTF8Encode(saddr);
         sql:=sql+'",phone="'+UTF8Encode(sphone)+'",el="'+ell+'" WHERE ID='+inttostr(num);
+        db.ExecSQL(sql); db.Commit;
      end else begin
+        ShowMessage('База пациентов переполнена! Удалите устаревшие записи.');
+        {
         sql:= 'INSERT INTO T_Pat (act,fio,D,M,Y,LD,sex,addr,phone,el) VALUES("1","';
         sql:=sql+UTF8Encode(sfio)+'","'+sD+'","'+sM+'","'+sY+'","No","'+UTF8Encode(ssex)+'","';
         sql:=sql+UTF8Encode(saddr)+'","'+UTF8Encode(sphone)+'","'+ell+'")';
         num:=F_pat.list.Items.Count;
+        db.ExecSQL(sql); db.Commit;
+        }
      end;
-     db.ExecSQL(sql); db.Commit; db.Free;
+     db.Free;
      F_pat.list.ItemIndex:=F_pat.list.Items.IndexOf(sfio);
      F_Pat.Caption:='Пациент  '+inttostr(num-1) ;ShData(num);
      if idx=1 then indx:=1; Patedt.close;

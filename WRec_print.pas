@@ -142,7 +142,7 @@ var i,k,kf,kp:integer;
    PDoc.Add('<table width="100%" cellspacing="2" cellpadding="0" border="0" class="recept">');
    for i:=1 to grid.RowCount do begin
       st:=Grid.Rows[i-1].Text; st[length(st)-1]:=' '; st[length(st)]:=' ';
-      if a[i-1]<2 then PDoc.Add('<tr><td>'+st+'</td></tr>')
+      if a[i-1]<2 then PDoc.Add('<tr><td><b>'+st+'</b></td></tr>')
          else if (ChBox.Checked) then PDoc.Add('<tr><th>'+st+'</th></tr>');
    end;
    PDoc.Add('</table><br/><b>Дополнительная информация:</b><br/>');

@@ -229,7 +229,7 @@ end;
 procedure TF_Pat.NoPat(Sender: TObject);
 begin
   Main.Caption:='Пациентов: '+inttostr(list.Items.Count)+' ==Работа без пациента==';
-  pat_name:='9999';  num:=9999;
+  pat_name:='9999';  num:=9999; WRec_main.ReadRecList(num);
   Modalresult := mrOk;
   WriteLog('Работа без пациента', 0);
 end;
